@@ -37,4 +37,4 @@ To start using the Web API, be sure to configure de database connection.
  
  You can change it for each method found in the controllers
  
- -time spent developing this website and functionality : 14 hours
+ -time spent developing and designing this webApi  and usecases : 14 hours
