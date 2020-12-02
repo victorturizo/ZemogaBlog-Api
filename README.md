@@ -9,7 +9,9 @@ Prerequsites:
 To start using the Web API, be sure to configure de database connection.
 
 - In project ZemogaPost.API,  find appsettings.json and open it.
+  
   Edit ConnectionString in the DefaultConection, Sever Option set the name of your local server
+  
  "ConnectionStrings": {
     "DefaultConnection": "Server=DESKTOP-HR9EAJN;Database=ZemogaBlog;Trusted_Connection=True;"
   },
