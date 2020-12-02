@@ -13,12 +13,13 @@ namespace ZemogaPost.Infraestructure.Persistense.Repositories
 
     {
         private readonly BlogDbContext _context;
-        //private readonly IMapper _mapper;
+        private DbSet<T> entities;
 
 
         public GenericRepository(BlogDbContext context)
         {
             this._context = context;
+            entities = context.Set<T>();
 
         }
 
@@ -34,8 +35,12 @@ namespace ZemogaPost.Infraestructure.Persistense.Repositories
 
         public async Task<bool> Create(T entity)
         {
-            await _context.Set<T>().AddAsync(entity);
-            return await _context.SaveChangesAsync() > 0;
+
+            await entities.AddAsync(entity);
+            return await this._context.SaveChangesAsync()>0;
+            //await this._context.Set<T>().AddAsync(entity);
+            //this._context.Entry(entity).CurrentValues.SetValues(entity);
+            //return await this._context.SaveChangesAsync() > 0;
         }
 
         public async Task<bool> Delete(int id)

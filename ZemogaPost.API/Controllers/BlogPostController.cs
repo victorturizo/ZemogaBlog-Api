@@ -31,7 +31,16 @@ namespace ZemogaPost.API.Controllers
         [HttpPost("SavePost")]
         public async Task<IActionResult> SavePost([FromBody]Post post)
         {
-            return Ok(await this.postService.Create(post));
+            try
+            {
+                return Ok(await this.postService.Create(post));
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
         }
 
         [HttpPost("GetPostById")]
@@ -44,6 +53,12 @@ namespace ZemogaPost.API.Controllers
         public async Task<IActionResult> UpdatePost([FromBody] Post post)
         {
             return Ok(await this.postService.Update(post, post.Id));
+        }
+
+        [HttpPost("DeletePost")]
+        public async Task<IActionResult> DeletePost([FromBody]int id)
+        {
+            return Ok(await this.postService.Delete(id));
         }
     }
 }

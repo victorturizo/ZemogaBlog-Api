@@ -13,6 +13,6 @@ namespace ZemogaPost.Domain.Entities
         public string Profile { get; set; }
 
 
-        public ICollection<Post> Posts { get; set; }
+        //public ICollection<Post> Posts { get; set; }
     }
 }
